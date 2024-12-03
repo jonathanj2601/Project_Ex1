@@ -11,6 +11,7 @@
  * You should implement the following static functions:
  */
 public class Ex1 {
+
         /**
          * Convert the given number (num) to a decimal representation (as int).
          * It the given number is not in a valid format returns -1.
