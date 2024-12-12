@@ -106,41 +106,31 @@ public class Ex1 {
             String ans = "";
             if(num<0 || base<2 || base>16)//checks if base isn't right if it isn't send back ""
                 return ans;
+            if(num==0) ans+="0";
             String Sbase=String.valueOf(base);//to get the String value of the int base( A=10...G=16)
             while(num>0){
                if(num%base>9){//if the rest of the divider is above 9 convert it into a letter than add.
-                   if(num%base==10)
-                       ans+= 'A';
-                   if(num%base==11)
-                       ans+= 'B';
-                   if(num%base==12)
-                       ans+= 'C';
-                   if(num%base==13)
-                       ans+= 'D';
-                   if(num%base==14)
-                       ans+= 'E';
-                   if(num%base==15)
-                       ans+= 'F';
+                   if(num%base==10) ans+= 'A';
+                   if(num%base==11) ans+= 'B';
+                   if(num%base==12) ans+= 'C';
+                   if(num%base==13) ans+= 'D';
+                   if(num%base==14) ans+= 'E';
+                   if(num%base==15) ans+= 'F';
                }
                else {// if it isn't above 9 just add to ans
                    ans+= (char)num%base;
                }
                 num/=base;
             }
+            if(base==10) Sbase = "A";
+            if(base==11) Sbase = "B";
+            if(base==12) Sbase = "C";
+            if(base==13) Sbase = "D";
+            if(base==14) Sbase = "E";
+            if(base==15) Sbase = "F";
+            if(base==16) Sbase = "G";
             if(base==10)
-                Sbase = "A";
-            if(base==11)
-                Sbase = "B";
-            if(base==12)
-                Sbase = "C";
-            if(base==13)
-                Sbase = "D";
-            if(base==14)
-                Sbase = "E";
-            if(base==15)
-                Sbase = "F";
-            if(base==16)
-                Sbase = "G";
+                return new StringBuilder(ans).reverse().toString();
             return new StringBuilder(ans).reverse().toString()+"b"+Sbase; //turn around the string. since we're dividing and make it look like the format
         }
 
