@@ -104,11 +104,11 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             String ans = "";
-            if(num<0 || base<2 || base>16)
+            if(num<0 || base<2 || base>16)//checks if base isn't right if it isn't send back ""
                 return ans;
-            String Sbase=String.valueOf(base);
+            String Sbase=String.valueOf(base);//to get the String value of the int base( A=10...G=16)
             while(num>0){
-               if(num%base>9){
+               if(num%base>9){//if the rest of the divider is above 9 convert it into a letter than add.
                    if(num%base==10)
                        ans+= 'A';
                    if(num%base==11)
@@ -122,12 +122,11 @@ public class Ex1 {
                    if(num%base==15)
                        ans+= 'F';
                }
-               else {
+               else {// if it isn't above 9 just add to ans
                    ans+= (char)num%base;
                }
                 num/=base;
             }
-
             if(base==10)
                 Sbase = "A";
             if(base==11)
@@ -142,8 +141,7 @@ public class Ex1 {
                 Sbase = "F";
             if(base==16)
                 Sbase = "G";
-
-            return new StringBuilder(ans).reverse().toString()+"b"+Sbase;
+            return new StringBuilder(ans).reverse().toString()+"b"+Sbase; //turn around the string. since we're dividing and make it look like the format
         }
 
         /**
@@ -154,7 +152,7 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            if(number2Int(n1)!=number2Int(n2)){
+            if(number2Int(n1)!=number2Int(n2)){ //checks if the decimal presentation of the 2 nums are equal. if it isn't return false.
                 ans = false;
             }
             return ans;

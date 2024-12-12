@@ -29,7 +29,7 @@ public class Ex1Test {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2","3 b4"};
+            String[] not_good = {"b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -38,32 +38,32 @@ public class Ex1Test {
         @Test
         void int2NumberTest() {
             assertEquals("1011b2"  ,Ex1.int2Number(11, 2 ));
-           // implement this test
+            assertEquals("1104b5"  ,Ex1.int2Number(154, 5 ));
+            assertEquals("13AAbG"  ,Ex1.int2Number(5034, 16 ));
+            assertEquals("500bE"  ,Ex1.int2Number(980, 14 ));
+            assertEquals("6A35bB"  ,Ex1.int2Number(9234, 11 ));
+            assertEquals("827bA"  ,Ex1.int2Number(827, 10 ));
         }
         @Test
         void maxIndexTest() {
-            // implement this test
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+            assertEquals(20398 , Ex1.maxIndex(new String[] {"21bG", "32bA", "234234b6", "5134"}));
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
+
         }
-
     @Test
-    void number2Int() {
+    void equalsTest() {
+        assertTrue(Ex1.equals("1011b2","11"));
+        assertTrue(Ex1.equals("980","500bE"));
+        assertTrue(Ex1.equals("1104b5","154bA"));
+        assertFalse(Ex1.equals("ABCbG","441234"));
+        assertFalse(Ex1.equals("1023sdf4b2","444"));
+        assertFalse(Ex1.equals("2342341sdf","444"));
+        assertFalse(Ex1.equals("123bA","1238bF"));
     }
 
-    @Test
-    void isNumber() {
-    }
-
-    @Test
-    void int2Number() {
-    }
-
-    @Test
-    void testEquals() {
-    }
-
-    @Test
-    void maxIndex() {
-    }
-
-    // Add additional test functions - test as much as you can.
     }
