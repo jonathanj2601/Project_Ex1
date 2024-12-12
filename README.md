@@ -25,7 +25,7 @@ Examples of invalid formats:
 - "" (empty string)
 - null
 ## Features
-I've got 6 functions that are necessary to do all the calculations:
+I've got 6 functions that are necessary to do all the calculations.Those functions are in class 'Ex1' :
 - Converter
 - number2Int
 - isNumber
@@ -33,7 +33,7 @@ I've got 6 functions that are necessary to do all the calculations:
 - equals
 - maxIndex
 
-I've explained each one's purpose before the functio and in the code itself i've put lines of explanations to better understand the code
+I've explained each one's purpose before the function and in the code itself I've put lines of explanations to better understand the code. go to class 'Ex1' to see each function's purpose.
 ## "Installation"
 Link to my Repository: https://github.com/jonathanj2601/Project_Ex1.git
 ## Usage
