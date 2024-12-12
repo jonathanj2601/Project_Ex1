@@ -36,7 +36,8 @@ public class Ex1Test {
             }
         }
         @Test
-        void int2NumberTest() {
+        void int2NumberTest() //tests the function int2Number
+        {
             assertEquals("1011b2"  ,Ex1.int2Number(11, 2 ));
             assertEquals("1104b5"  ,Ex1.int2Number(154, 5 ));
             assertEquals("13AAbG"  ,Ex1.int2Number(5034, 16 ));
@@ -45,18 +46,19 @@ public class Ex1Test {
             assertEquals("827bA"  ,Ex1.int2Number(827, 10 ));
         }
         @Test
-        void maxIndexTest() {
+        void maxIndexTest()//tests the function maxIndex
+        {
             assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
             assertEquals(20398 , Ex1.maxIndex(new String[] {"21bG", "32bA", "234234b6", "5134"}));
-            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
-            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
-            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
-            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
-            assertEquals(4, Ex1.maxIndex(new String[] {"1", "2", "3", "4"}));
-
+            assertEquals(1795687 , Ex1.maxIndex(new String[] {"2345", "2345b6", "12312121213b4", "3465bE"}));
+            assertEquals(6057968, Ex1.maxIndex(new String[] {"234bB", "76868", "12352865b9", "3235"}));
+            assertEquals(14519232, Ex1.maxIndex(new String[] {"2345b6", "924875bA", "8217572bB", "2451"}));
+            assertEquals(435436, Ex1.maxIndex(new String[] {"435436", "2134bE", "6234b7", "2346b8"}));
+            assertEquals(0, Ex1.maxIndex(new String[] {"234095b9", "234b5", "2523523", "4334"}));//because on of the elements in the array are not in the format therefor it's the max is 0
         }
     @Test
-    void equalsTest() {
+    void equalsTest() //tests the function equals
+    {
         assertTrue(Ex1.equals("1011b2","11"));
         assertTrue(Ex1.equals("980","500bE"));
         assertTrue(Ex1.equals("1104b5","154bA"));
@@ -65,5 +67,13 @@ public class Ex1Test {
         assertFalse(Ex1.equals("2342341sdf","444"));
         assertFalse(Ex1.equals("123bA","1238bF"));
     }
-
+    @Test
+    void ConverterTest()//tests the function Converter
+    {
+        assertEquals(11, Ex1.Converter('B'));
+        assertEquals(12, Ex1.Converter('C'));
+        assertEquals(10, Ex1.Converter('A'));
+        assertEquals(5, Ex1.Converter('5'));
+        assertEquals(14, Ex1.Converter('E'));
     }
+}
