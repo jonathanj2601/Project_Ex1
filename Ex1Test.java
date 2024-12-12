@@ -43,7 +43,7 @@ public class Ex1Test {
             assertEquals("13AAbG"  ,Ex1.int2Number(5034, 16 ));
             assertEquals("500bE"  ,Ex1.int2Number(980, 14 ));
             assertEquals("6A35bB"  ,Ex1.int2Number(9234, 11 ));
-            assertEquals("827bA"  ,Ex1.int2Number(827, 10 ));
+            assertEquals("827"  ,Ex1.int2Number(827, 10 ));
         }
         @Test
         void maxIndexTest()//tests the function maxIndex
