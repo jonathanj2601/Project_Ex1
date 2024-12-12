@@ -63,29 +63,34 @@ public class Ex1 {
             char c;
             if (a.isEmpty()|| a==null) //checks if the string is null or empty
                 ans = false;
-
-            if(a.indexOf('b')==-1 && !a.matches("\\d+")) //if 'b' isn't in the string (a). check if all the characters are digits.
+            try{ // if there is more than 1 b, (a.indexOf(b)) will send error, therefor if there is error. return false. because it means there is more than 1 b. and i know the rest of the code won't send an error, already checked with every non format option.
+                if(a.indexOf('b')==-1 && !a.matches("\\d+")) //if 'b' isn't in the string (a). check if all the characters are digits.
                 ans = false;
-            if(a.indexOf('b')==-1 && a.matches("\\d+")) //if 'b' isn't in the string (a).and all the characters ARE digits. return true.
-                return true;
-            if(a.indexOf('b')== a.length()-1 || a.indexOf('b') == 0) //checks if there isn't a number before b or after b
-                return false;
-            if(a.charAt(a.indexOf('b')+1)=='0' || a.charAt(a.indexOf('b')+1)=='1')//checks if the base is 0 or 1
-                ans = false;
-            for(int i=0; i<a.length()-1; i++)//checks if every character is either A-G or b or 0-9
-            {
-                c = a.charAt(i);
-                if(!(Character.isDigit(c)) && !(c >= 'A' && c <= 'G') && (c!='b'))// checks if every digit is either 0-9 or A-B
+                if(a.indexOf('b')==-1 && a.matches("\\d+")) //if 'b' isn't in the string (a).and all the characters ARE digits. return true.
+                    return true;
+                if(a.indexOf('b')== a.length()-1 || a.indexOf('b') == 0) //checks if there isn't a number before b or after b
                     return false;
-            }
-            for (int j = 0; j < a.length()-1; j++) {
-                c = a.charAt(j);
-                if(c!='b')
+                if(a.charAt(a.indexOf('b')+1)=='0' || a.charAt(a.indexOf('b')+1)=='1')//checks if the base is 0 or 1
+                    ans = false;
+                for(int i=0; i<a.length()-1; i++)//checks if every character is either A-G or b or 0-9
                 {
-                    if (Converter(c)>=Converter(a.charAt(a.indexOf('b')+1)))//checks if what is before b greater than the base.
-                        ans = false;
+                    c = a.charAt(i);
+                    if(!(Character.isDigit(c)) && !(c >= 'A' && c <= 'G') && (c!='b'))// checks if every digit is either 0-9 or A-B
+                        return false;
+                }
+                for (int j = 0; j < a.length()-1; j++) {
+                    c = a.charAt(j);
+                    if(c!='b')
+                    {
+                        if (Converter(c)>=Converter(a.charAt(a.indexOf('b')+1)))//checks if what is before b greater than the base.
+                            ans = false;
+                    }
                 }
             }
+            catch(Exception e){
+                return false;
+            }
+
             return ans;
         }
 
@@ -101,7 +106,7 @@ public class Ex1 {
             String ans = "";
             if(num<0 || base<2 || base>16)
                 return ans;
-            String Sbase;
+            String Sbase=String.valueOf(base);
             while(num>0){
                if(num%base>9){
                    if(num%base==10)
@@ -138,7 +143,7 @@ public class Ex1 {
             if(base==16)
                 Sbase = "G";
 
-            return ans;
+            return new StringBuilder(ans).reverse().toString()+"b"+Sbase;
         }
 
         /**
@@ -149,7 +154,9 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-
+            if(number2Int(n1)!=number2Int(n2)){
+                ans = false;
+            }
             return ans;
         }
 
@@ -163,9 +170,14 @@ public class Ex1 {
          */
         public static int maxIndex(String[] arr) {
             int ans = 0;
-            // add your code here
-
-            ////////////////////
+            for(int i=0; i<arr.length-1; i++) {
+                if (!isNumber(arr[i]))//checks if any of the elements are not in the format
+                    return ans;
+            }
+            for(int j=0; j<arr.length; j++){
+                if(number2Int(arr[j])>ans)
+                    ans = number2Int(arr[j]);
+            }
             return ans;
         }
 }

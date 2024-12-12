@@ -8,8 +8,6 @@ import java.io.*;
 public class Ex1Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num3;
-        int basee;
         String num1 = "", num2="", quit = "quit";
         while (!num1.equals(quit) && !num2.equals(quit)) {
             System.out.println();
@@ -17,14 +15,26 @@ public class Ex1Main {
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");
             num1 = sc.next();
             if (!num1.equals("quit")) {
-                // add your code here
-                System.out.println(Ex1.isNumber(num1));
-                System.out.println(Ex1.number2Int(num1));
-                System.out.println("enter num3, base");
-                num3 = sc.nextInt();
-                basee = sc.nextInt();
-                System.out.println(Ex1.int2Number(num3,basee));
-                ///////////////////////
+                System.out.println("num1= "+num1+" is number: "+Ex1.isNumber(num1)+" , value: "+Ex1.number2Int(num1));
+                if(!Ex1.isNumber(num1)) {
+                    System.out.println("ERR: num1 is in the wrong format! "+"("+num1+")");
+                    continue;
+                }
+            }
+            else{
+                break; //if num1 equals quit, quit the program.
+            }
+            System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
+            num2 = sc.next();
+            if (!num2.equals("quit")) {
+                System.out.println("num2= "+num2+" is number: "+Ex1.isNumber(num2)+" , value: "+Ex1.number2Int(num2));
+                if(!Ex1.isNumber(num2)) {
+                    System.out.println("ERR: num2 is in the wrong format! "+"("+num2+")");
+                    continue;
+                }
+            }
+            else{
+                break;//if num2 equals quit, quit the program.
             }
         }
         System.out.println("quiting now...");
